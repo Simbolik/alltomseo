@@ -1,0 +1,91 @@
+/* Related Articles Section Styles */
+.related-articles-section {
+  @apply py-8 border-t border-gray-200;
+}
+
+.related-articles-title {
+  @apply text-2xl font-semibold text-gray-900 mb-6 px-6 sm:px-8 lg:px-10;
+}
+
+.related-articles-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-6 sm:px-8 lg:px-10;
+}
+
+/* Related Article Card - Smaller than PostCard */
+.related-article-card {
+  @apply rounded-lg border border-gray-200 bg-surface shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col h-full;
+}
+
+/* Content Section */
+.related-article-content {
+  @apply p-3 flex flex-col h-full;
+}
+
+/* Category */
+.related-article-category {
+  @apply inline-block text-xs font-semibold text-blue-600 hover:text-blue-700 uppercase tracking-wide transition-colors mb-1;
+}
+
+/* Date */
+.related-article-date {
+  @apply text-xs text-gray-500 mb-2;
+}
+
+/* Image Section */
+.related-article-image-link {
+  @apply block overflow-hidden;
+}
+
+.related-article-image-wrapper {
+  @apply relative w-full;
+  aspect-ratio: 4/3;
+}
+
+.related-article-image {
+  @apply object-cover w-full h-full transition-transform duration-300 hover:scale-105;
+}
+
+/* Title */
+.related-article-title {
+  @apply mb-2;
+}
+
+.related-article-title-link {
+  @apply text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors block leading-tight;
+}
+
+/* Excerpt */
+.related-article-excerpt {
+  @apply text-sm text-gray-600 flex-grow;
+  /* Excerpt limited to 160 characters for consistency */
+  overflow: hidden;
+  margin-bottom: 0.25rem; /* Minimal space between excerpt and button */
+}
+
+.related-article-excerpt p {
+  @apply m-0 leading-relaxed;
+}
+
+/* Read More Button */
+.related-article-button {
+  @apply inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors mt-auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .related-articles-grid {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+}
+
+@media (max-width: 640px) {
+  .related-articles-grid {
+    @apply grid-cols-1 gap-3;
+  }
+  
+  .related-article-title-link {
+    @apply text-base;
+  }
+  
+  /* Excerpt remains 160 characters on mobile for consistency */
+}

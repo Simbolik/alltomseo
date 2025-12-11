@@ -1,0 +1,663 @@
+/* Article Container Styles */
+.article-container {
+  @apply w-full bg-surface rounded-lg shadow-soft border border-gray-100;
+}
+
+/* Article Header Styles */
+.article-header {
+  @apply px-6 sm:px-8 lg:px-10 pt-8 pb-6 border-b border-gray-200;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  @apply flex items-center gap-2 text-sm mb-6;
+}
+
+.breadcrumb-item {
+  @apply flex items-center text-gray-600 hover:text-gray-900 transition-colors;
+}
+
+.breadcrumb-item svg {
+  @apply w-4 h-4 mr-1;
+}
+
+.breadcrumb-separator {
+  @apply text-gray-400;
+}
+
+.breadcrumb-current {
+  @apply text-gray-900 font-medium;
+}
+
+/* Category Badge */
+.category-badge {
+  @apply inline-block mb-4;
+}
+
+.category-badge a {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors;
+}
+
+/* Article Title */
+.article-title {
+  @apply text-4xl font-semibold text-gray-700 leading-tight mb-6;
+}
+
+/* Article Meta */
+.article-meta {
+  @apply flex flex-wrap items-center gap-4 text-sm text-gray-600;
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+/* Override content list styles for meta */
+.article-meta li {
+  @apply flex items-center gap-2;
+  padding-left: 0 !important;
+  margin: 0 !important;
+  position: relative;
+}
+
+.article-meta li::before {
+  display: none !important;
+  content: none !important;
+}
+
+.meta-item {
+  @apply flex items-center gap-2;
+}
+
+.meta-icon {
+  @apply w-5 h-5 text-gray-400;
+}
+
+/* Featured Image */
+.featured-image-container {
+  @apply px-6 sm:px-8 lg:px-10 py-6;
+}
+
+.featured-image-wrapper {
+  @apply relative w-full overflow-hidden rounded-lg;
+  aspect-ratio: 16 / 9;
+}
+
+.featured-image {
+  @apply w-full h-full object-cover;
+}
+
+/* Ensure ResponsiveImage works properly */
+.featured-image-wrapper img {
+  @apply w-full h-full object-cover;
+}
+
+.featured-image-caption {
+  @apply mt-3 px-4 py-2 text-sm text-gray-700 text-center italic bg-gray-100 rounded-lg relative;
+  line-height: 1.6;
+}
+
+/* Speech-bubble tail for featured image caption */
+.featured-image-caption::before {
+  content: '';
+  @apply absolute -top-2 left-4 w-0 h-0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #f3f4f6; /* bg-gray-100 */
+}
+
+/* Article Content - Enhanced Typography */
+.article-content {
+  @apply prose prose-lg prose-gray max-w-none px-6 sm:px-8 lg:px-10 py-8;
+}
+
+/* 1. Tables with modern design */
+.article-content table {
+  @apply w-full border-collapse my-8 shadow-sm rounded-lg overflow-hidden;
+  font-size: 0.95rem;
+}
+
+.article-content thead {
+  @apply bg-gray-50 border-b-2 border-gray-200;
+}
+
+.article-content th {
+  @apply px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider;
+}
+
+.article-content tbody tr {
+  @apply border-b border-gray-100 hover:bg-gray-50 transition-colors;
+}
+
+.article-content tbody tr:last-child {
+  @apply border-b-0;
+}
+
+.article-content td {
+  @apply px-6 py-4 text-gray-900;
+}
+
+/* 2. Table Caption */
+.article-content caption {
+  @apply mt-2 text-sm text-gray-600 italic text-center;
+  caption-side: bottom;
+}
+
+/* 3. Lists - General */
+.article-content ul,
+.article-content ol {
+  @apply my-6 ml-0 space-y-2;
+}
+
+/* 4. Bullet List / Unordered List */
+.article-content ul {
+  @apply list-none;
+}
+
+.article-content ul > li {
+  @apply relative pl-7;
+}
+
+.article-content ul > li::before {
+  content: '•';
+  @apply absolute left-0 text-blue-500 font-bold text-xl;
+  top: -0.1em;
+}
+
+/* Nested bullet lists */
+.article-content ul ul {
+  @apply mt-2 ml-4;
+}
+
+.article-content ul ul > li::before {
+  content: '◦';
+  @apply text-gray-400;
+}
+
+/* 5. Numbered List / Ordered List */
+.article-content ol {
+  counter-reset: list-counter;
+  @apply list-none;
+}
+
+.article-content ol > li {
+  counter-increment: list-counter;
+  @apply relative pl-8;
+}
+
+.article-content ol > li::before {
+  content: counter(list-counter) '.';
+  @apply absolute left-0 text-blue-600 font-semibold;
+}
+
+/* 6. Definition List / Description List */
+.article-content dl {
+  @apply my-6 space-y-4;
+}
+
+.article-content dt {
+  @apply font-semibold text-gray-900 text-lg;
+}
+
+.article-content dd {
+  @apply ml-6 mt-2 text-gray-700;
+}
+
+/* 7. List Items (general styling) */
+.article-content li {
+  @apply text-gray-600 leading-relaxed;
+}
+
+.article-content li > p {
+  @apply my-2;
+}
+
+/* 8. Block Quote */
+.article-content blockquote {
+  @apply relative my-8 pl-6 pr-4 py-4 bg-gradient-to-r from-blue-50 to-transparent border-l-4 border-blue-500 italic;
+}
+
+.article-content blockquote::before {
+  content: '"';
+  @apply absolute text-6xl text-blue-200 -top-2 left-2;
+  font-family: Georgia, serif;
+}
+
+.article-content blockquote p {
+  @apply relative z-10 text-gray-700;
+}
+
+.article-content blockquote cite {
+  @apply block mt-4 text-sm text-gray-600 not-italic;
+}
+
+/* 9. Inline Quote / Quotation */
+.article-content q {
+  @apply text-gray-800 italic;
+  quotes: '"' '"' ''' ''';
+}
+
+.article-content q::before {
+  content: open-quote;
+}
+
+.article-content q::after {
+  content: close-quote;
+}
+
+/* 10. Headings */
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+  @apply font-semibold text-gray-700 relative;
+  scroll-margin-top: 5rem;
+}
+
+.article-content h1 {
+  @apply text-4xl mt-0 mb-6 pb-4 border-b-2 border-gray-200;
+}
+
+.article-content h2 {
+  @apply text-3xl mt-10 mb-6;
+}
+
+.article-content h3 {
+  @apply text-2xl mt-8 mb-4;
+}
+
+.article-content h4 {
+  @apply text-xl mt-6 mb-3;
+}
+
+.article-content h5 {
+  @apply text-lg mt-6 mb-3;
+}
+
+.article-content h6 {
+  @apply text-base mt-6 mb-3 uppercase tracking-wide text-gray-700;
+}
+
+/* Anchor links for headings */
+.anchor-link {
+  @apply ml-2 text-gray-400 opacity-0 transition-opacity duration-200;
+  text-decoration: none !important;
+}
+
+.article-content h2:hover .anchor-link,
+.article-content h3:hover .anchor-link,
+.article-content h4:hover .anchor-link {
+  @apply opacity-100;
+}
+
+/* 11. Paragraph */
+.article-content p {
+  @apply my-6 text-gray-600 leading-relaxed;
+}
+
+/* 12. Body Text (inherits from paragraph) */
+.article-content {
+  @apply text-lg leading-8 text-gray-600;
+}
+
+/* 13. Images */
+.article-content img {
+  @apply rounded-lg shadow-md my-8 w-full h-auto;
+}
+
+.article-content figure {
+  @apply my-8;
+}
+
+/* 14. Image Caption */
+.article-content figcaption,
+.article-content .wp-caption-text {
+  @apply mt-3 px-4 py-2 text-sm text-gray-700 text-center italic bg-gray-100 rounded-lg relative;
+  line-height: 1.6;
+}
+
+/* Speech-bubble tail for captions */
+.article-content figcaption::before,
+.article-content .wp-caption-text::before {
+  content: '';
+  @apply absolute -top-2 left-4 w-0 h-0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #f3f4f6; /* bg-gray-100 */
+}
+
+/* WordPress Caption Figure */
+.article-content .wp-caption-figure {
+  @apply my-8 mx-auto max-w-full;
+}
+
+.article-content .wp-caption-figure img {
+  @apply my-0 rounded-lg shadow-lg transition-transform duration-200 hover:scale-[1.02];
+}
+
+.article-content .wp-caption-figure figcaption {
+  @apply mt-3 px-4 py-2 text-sm text-gray-700 text-center italic bg-gray-100 rounded-lg relative;
+  line-height: 1.6;
+}
+
+/* Enhanced caption design with subtle background */
+.article-content figure:has(figcaption) {
+  @apply bg-surface rounded-lg shadow-sm overflow-hidden;
+}
+
+.article-content figure:has(figcaption) img {
+  @apply rounded-lg shadow-none;
+}
+
+/* Alternative caption style for emphasis */
+.article-content .caption-emphasis figcaption {
+  @apply mt-4 px-0 py-3 text-base font-normal not-italic text-gray-700 border-t border-gray-200 text-left;
+}
+
+/* Caption with attribution */
+.article-content figcaption .caption-credit {
+  @apply block mt-1 text-xs text-gray-500;
+}
+
+/* 15. Inline Code */
+.article-content code:not(pre code) {
+  @apply px-2 py-1 bg-gray-100 text-red-600 rounded text-sm font-mono;
+}
+
+/* 16. Code Block / Code Fence */
+.article-content pre {
+  @apply relative my-8 bg-gray-900 text-gray-100 rounded-lg shadow-lg overflow-x-auto;
+  padding: 1.5rem;
+}
+
+.article-content pre code {
+  @apply block text-sm font-mono leading-relaxed;
+  background: transparent !important;
+  padding: 0 !important;
+  color: inherit !important;
+}
+
+/* Copy button for code blocks */
+.copy-button {
+  @apply absolute top-3 right-3 p-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded transition-colors;
+  z-index: 10;
+}
+
+.copy-button:hover {
+  @apply text-white;
+}
+
+.copy-button.copied {
+  @apply bg-green-600 text-white;
+}
+
+/* 17. Strikethrough */
+.article-content del,
+.article-content s,
+.article-content strike {
+  @apply line-through text-gray-500;
+}
+
+/* 18. Bold */
+.article-content strong,
+.article-content b {
+  @apply font-bold text-gray-700;
+}
+
+/* 19. Italic */
+.article-content em,
+.article-content i {
+  @apply italic;
+}
+
+/* 20. Links / Hyperlinks */
+.article-content a {
+  @apply text-blue-600 underline decoration-blue-200 decoration-2 hover:text-blue-700 hover:decoration-blue-600 transition-colors;
+}
+
+.article-content a:visited {
+  @apply text-purple-600 decoration-purple-200;
+}
+
+/* TOC Link Overrides - More specific selectors to override article link styles */
+.article-content .toc-link,
+.article-content .toc-list a {
+  @apply text-gray-700 no-underline hover:text-gray-500 hover:no-underline;
+  text-decoration: none !important;
+  color: rgb(55, 65, 81) !important;
+}
+
+.article-content .toc-link:hover,
+.article-content .toc-list a:hover {
+  color: rgb(156, 163, 175) !important; /* gray-400 - even lighter */
+  text-decoration: none !important;
+}
+
+.article-content .toc-link:visited,
+.article-content .toc-list a:visited {
+  color: rgb(55, 65, 81) !important;
+}
+
+/* TOC List Styling - Use default numbered list */
+.article-content .toc-list {
+  list-style: decimal !important;
+  list-style-position: outside !important;
+  padding-left: 0 !important;
+  margin-left: 1.5rem !important;
+  counter-reset: none !important;
+}
+
+.article-content .toc-list li {
+  padding-left: 0.5rem !important;
+  position: relative;
+  counter-increment: none !important;
+}
+
+/* Remove any custom list markers for TOC */
+.article-content .toc-list li::before {
+  display: none !important;
+  content: none !important;
+}
+
+.article-content .toc-list li::marker {
+  color: rgb(107, 114, 128); /* gray-500 */
+  font-weight: 500;
+}
+
+/* Additional Elements */
+
+/* Horizontal Rule */
+.article-content hr {
+  @apply my-12 border-t-2 border-gray-200;
+}
+
+/* Keyboard Input */
+.article-content kbd {
+  @apply inline-block px-2 py-1 text-sm font-mono bg-gray-100 border border-gray-300 rounded shadow-sm;
+}
+
+/* Mark/Highlight */
+.article-content mark {
+  @apply bg-yellow-200 px-1 py-0.5 rounded;
+}
+
+/* Abbreviation */
+.article-content abbr {
+  @apply underline decoration-dotted cursor-help;
+}
+
+/* Superscript and Subscript */
+.article-content sup {
+  @apply text-xs align-super;
+}
+
+.article-content sub {
+  @apply text-xs align-sub;
+}
+
+/* Article Footer */
+.article-footer {
+  @apply py-8 border-t border-gray-200;
+}
+
+/* Article Navigation - Previous/Next */
+.article-navigation {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 px-6 sm:px-8 lg:px-10;
+}
+
+.nav-item {
+  @apply flex items-center gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-all duration-200;
+  text-decoration: none;
+}
+
+.nav-item.previous {
+  @apply justify-start text-left;
+}
+
+.nav-item.next {
+  @apply justify-end text-right;
+}
+
+.nav-item.placeholder {
+  @apply invisible;
+}
+
+.nav-image {
+  @apply relative w-24 h-16 flex-shrink-0 rounded overflow-hidden bg-gray-200;
+}
+
+.nav-content {
+  @apply flex flex-col gap-1 flex-grow min-w-0;
+}
+
+.nav-label {
+  @apply flex items-center gap-2 text-sm font-medium text-gray-600 group-hover:text-gray-900 transition-colors;
+}
+
+.nav-arrow {
+  @apply w-4 h-4 flex-shrink-0;
+}
+
+.nav-arrow.left {
+  @apply mr-1;
+}
+
+.nav-arrow.right {
+  @apply ml-1;
+}
+
+.nav-title {
+  @apply text-base font-semibold text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors;
+  margin: 0;
+}
+
+/* Responsive adjustments for navigation */
+@media (max-width: 768px) {
+  .article-navigation {
+    @apply gap-4;
+  }
+  
+  .nav-item {
+    @apply p-3;
+  }
+  
+  .nav-image {
+    @apply w-20 h-14;
+  }
+  
+  .nav-title {
+    @apply text-sm;
+  }
+}
+
+.share-section {
+  @apply text-center pt-8 border-t border-gray-200 px-6 sm:px-8 lg:px-10;
+}
+
+.share-title {
+  @apply text-lg font-semibold text-gray-900 mb-4;
+}
+
+.share-buttons {
+  @apply flex justify-center gap-3;
+}
+
+.share-button {
+  @apply p-3 rounded-full transition-all duration-200 hover:scale-110;
+}
+
+.share-button svg {
+  @apply w-5 h-5;
+}
+
+.share-button.twitter {
+  @apply bg-blue-400 text-white hover:bg-blue-500;
+}
+
+.share-button.facebook {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+.share-button.linkedin {
+  @apply bg-blue-700 text-white hover:bg-blue-800;
+}
+
+.share-button.copy {
+  @apply bg-gray-600 text-white hover:bg-gray-700;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .article-title {
+    @apply text-3xl;
+  }
+  
+  .article-content {
+    @apply text-base;
+  }
+  
+  .article-content h1 {
+    @apply text-3xl;
+  }
+  
+  .article-content h2 {
+    @apply text-2xl;
+  }
+  
+  .article-content h3 {
+    @apply text-xl;
+  }
+  
+  .article-content table {
+    @apply text-sm;
+  }
+  
+  .article-content th,
+  .article-content td {
+    @apply px-3 py-2;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .breadcrumbs,
+  .category-badge,
+  .share-section,
+  .copy-button,
+  .anchor-link {
+    display: none !important;
+  }
+  
+  .article-content {
+    @apply text-black;
+  }
+  
+  .article-content a {
+    @apply text-black underline;
+  }
+  
+  .article-content pre {
+    @apply bg-gray-100 text-black border border-gray-300;
+  }
+}

@@ -107,43 +107,77 @@ const config = {
           to: { height: '0' },
         },
       },
-      typography: () => ({
+      borderRadius: {
+        xs: '4px',
+        sm: '6px',
+      },
+      boxShadow: {
+        soft: '0 2px 8px rgba(0,0,0,.06)',
+        '3d': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1), -2px 0 4px -1px rgb(0 0 0 / 0.08), 2px 0 4px -1px rgb(0 0 0 / 0.08)',
+      },
+      colors: {
+        bg: 'var(--bg)',
+        surface: 'var(--surface)',
+        text: 'var(--text)',
+        muted: 'var(--muted)',
+        border: 'var(--border)',
+        brand: 'var(--brand)',
+        header: 'var(--header)',
+        headerText: 'var(--header-text)',
+        navBg: 'var(--nav-bg)',
+        navText: 'var(--nav-text)',
+        sideBg: 'var(--side-bg)',
+        link: 'var(--link)',
+        linkHover: 'var(--link-hover)',
+        footer: 'var(--footer)',
+        footerText: 'var(--footer-text)',
+        buttonBg: 'var(--button-bg)',
+        buttonHover: 'var(--button-hover)',
+      },
+      typography: (theme) => ({
         DEFAULT: {
-          css: [
-            {
-              '--tw-prose-body': 'var(--text)',
-              '--tw-prose-headings': 'var(--text)',
-              h1: {
-                fontWeight: 'normal',
-                marginBottom: '0.25em',
+          css: {
+            maxWidth: 'none',
+            color: theme('colors.gray.900'),
+            lineHeight: '1.75',
+            fontSize: '1.125rem',
+            a: {
+              color: theme('colors.blue.600'),
+              textDecoration: 'none',
+              fontWeight: '500',
+              '&:hover': {
+                color: theme('colors.blue.700'),
+                textDecoration: 'underline',
               },
             },
-          ],
-        },
-        base: {
-          css: [
-            {
-              h1: {
-                fontSize: '2.5rem',
-              },
-              h2: {
-                fontSize: '1.25rem',
-                fontWeight: 600,
-              },
+            'h1, h2, h3, h4, h5, h6': {
+              fontWeight: '600',
+              lineHeight: '1.25',
             },
-          ],
-        },
-        md: {
-          css: [
-            {
-              h1: {
-                fontSize: '3.5rem',
-              },
-              h2: {
-                fontSize: '1.5rem',
-              },
+            h1: {
+              fontSize: '2.5rem',
+              marginTop: '0',
+              marginBottom: '2rem',
             },
-          ],
+            h2: {
+              fontSize: '2rem',
+              marginTop: '3rem',
+              marginBottom: '1.5rem',
+            },
+            h3: {
+              fontSize: '1.75rem',
+              marginTop: '2.5rem',
+              marginBottom: '1rem',
+            },
+            p: {
+              marginTop: '1.5rem',
+              marginBottom: '1.5rem',
+            },
+            strong: {
+              fontWeight: '700',
+              color: theme('colors.gray.900'),
+            },
+          },
         },
       }),
     },
